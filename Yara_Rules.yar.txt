@@ -1,0 +1,18 @@
+rule Emotet_Spambot_Network_Artifacts
+{
+    meta:
+        description = "Detects Emotet-style disguised delivery path and non-browser User-Agent seen in this investigation"
+        author = "Your Name"
+        date = "2026-07-19"
+
+    strings:
+        $delivery_path = "/wp-content/L/?" ascii wide
+        $suspicious_ua = "WinHttp.WinHttpRequest.5" ascii wide
+        $spoofed_ehlo = "EHLO [127.0.0.1]" ascii wide
+        $zip_header = { 50 4B 03 04 }
+
+    condition:
+        ( 2 of ($delivery_path, $suspicious_ua, $spoofed_ehlo) )
+        or
+        ( $zip_header and $suspicious_ua )
+}
