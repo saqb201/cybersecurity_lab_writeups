@@ -1,0 +1,46 @@
+title: Suspicious Script Execution Spawned from Document Reader or Browser
+id: 7f3c1e2a-9b4d-4a1e-8c2f-1e9d7a5b3c6f
+status: experimental
+description: >
+  Detects a script interpreter or command shell (powershell.exe, cmd.exe, mshta.exe)
+  being launched by a document reader, office application, or browser, optionally
+  carrying encoded/obfuscated command-line content.
+author: Your Name
+date: 2026/07/19
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_powershell_encoded:
+    EventID:
+      - 4104
+      - 4688
+    ParentImage|endswith:
+      - '\AcroRd32.exe'
+      - '\Acrobat.exe'
+      - '\WINWORD.EXE'
+      - '\EXCEL.EXE'
+    CommandLine|contains:
+      - '-enc'
+      - '-EncodedCommand'
+      - 'FromBase64String'
+      - 'IEX'
+  selection_ltl_variant:
+    Image|endswith:
+      - '\mshta.exe'
+      - '\cmd.exe'
+    ParentImage|endswith:
+      - '\iexplore.exe'
+      - '\msxsl.exe'
+      - '\chrome.exe'
+      - '\msedge.exe'
+  condition: 1 of selection_*
+falsepositives:
+  - Legitimate mail-merge or automation macros that call PowerShell from Office
+  - IT administration scripts that launch mshta.exe for internal HTA tools
+level: high
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1218.005
+  - attack.t1566
