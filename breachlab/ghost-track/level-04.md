@@ -57,11 +57,11 @@ The key insight: with 500 files, you need to search **all of them at once** usin
 
 ```bash
 ghost4@breachlab:~/vault$ cat record_0* | grep "password"
-[2026-03-28 02:47:13] password=OXJukpigxrek5Aij
-[2026-03-28 02:47:13] password=lGkIOi0VAxYi9mWK
-[2026-03-28 02:47:13] password=IToIl8UcTIkRC6cM
-[2026-03-28 02:47:13] password=6nRicmB1WPUtRdIB
-[2026-03-28 02:47:13] password=wH7v87lbQx9HTiqq
+[2026-03-28 02:47:13] password=[REDACTED]
+[2026-03-28 02:47:13] password=[REDACTED]
+[2026-03-28 02:47:13] password=[REDACTED]
+[2026-03-28 02:47:13] password=[REDACTED]
+[2026-03-28 02:47:13] password=[REDACTED]
 ```
 
 Five results — all with the same timestamp and same format. These are decoys. The challenge said "one of them isn't like the others" — five identical-format results is suspicious. None of these are the real password.
@@ -91,19 +91,17 @@ Tried uppercase "CREDENTIAL" — and found the one entry with a completely diffe
 
 ```bash
 ghost4@breachlab:~/vault$ cat record_0* | grep "CREDENTIAL"
-[CLASSIFIED] CREDENTIAL: Gr3p_F1nds_Truth
+[CLASSIFIED] CREDENTIAL: [REDACTED — solve it yourself at breachlab.org]
 ```
 
 One result. Different format from everything else — `[CLASSIFIED]` prefix instead of a timestamp, `CREDENTIAL:` instead of `password=`. This is the signal in the noise.
-
-Password found: `Gr3p_F1nds_Truth`
 
 Confirmed by logging into ghost5:
 
 ```bash
 ┌──(kali㉿kali)-[~]
 └─$ ssh ghost5@204.168.229.209 -p 2222
-(ghost5@204.168.229.209) Password: Gr3p_F1nds_Truth
+(ghost5@204.168.229.209) Password: [REDACTED]
 
 # Successfully logged in as ghost5 ✓
 ```
@@ -150,3 +148,5 @@ The `-r` flag makes grep search recursively through a directory — no need to `
 
 *Part of my BreachLab Ghost Track series — documenting every level as I complete it.*  
 *GitHub: https://github.com/saqb201/cybersecurity_lab_writeups*
+
+*Password redacted in compliance with breachlab.org rules.*
