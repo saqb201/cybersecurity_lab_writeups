@@ -174,10 +174,8 @@ Connected to port 30101 and sent the token:
 ghost5@breachlab:~$ nc localhost 30101
 AUTHENTICATE: GHOST
 
-  Credential: P0rts_N3v3r_L13
+  Credential: [REDACTED — solve it yourself at breachlab.org]
 ```
-
-Password found: `P0rts_N3v3r_L13`
 
 ### Method 2 — /proc/net/tcp manual decode
 
@@ -198,7 +196,7 @@ Confirmed by logging into ghost6:
 ```bash
 ┌──(kali㉿kali)-[~]
 └─$ ssh ghost6@204.168.229.209 -p 2222
-(ghost6@204.168.229.209) Password: P0rts_N3v3r_L13
+(ghost6@204.168.229.209) Password: [REDACTED]
 
 # Successfully logged in as ghost6 ✓
 ```
@@ -245,3 +243,5 @@ When standard enumeration tools (`ss`, `netstat`) are unavailable, fall back to 
 
 *Part of my BreachLab Ghost Track series — documenting every level as I complete it.*  
 *GitHub: https://github.com/saqb201/cybersecurity_lab_writeups*
+
+*Password redacted in compliance with breachlab.org rules.*
