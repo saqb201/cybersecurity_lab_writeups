@@ -108,17 +108,15 @@ The `file name` file (with the space) contains the actual password. The fix is w
 
 ```bash
 ghost1@breachlab:~$ cat 'file name'
-D4shIsN0tAFl4g
+[REDACTED — solve it yourself at breachlab.org]
 ```
-
-Password found: `D4shIsN0tAFl4g`
 
 Logged in as ghost2 to confirm:
 
 ```bash
 ┌──(kali㉿kali)-[~]
 └─$ ssh ghost2@204.168.229.209 -p 2222
-(ghost2@204.168.229.209) Password: D4shIsN0tAFl4g
+(ghost2@204.168.229.209) Password: [REDACTED]
 
 # Successfully logged in as ghost2 ✓
 ```
@@ -170,3 +168,5 @@ Linux shell quoting is not just syntax — it is a core security and enumeration
 
 *Part of my BreachLab Ghost Track series — documenting every level as I complete it.*  
 *GitHub: https://github.com/saqb201/cybersecurity_lab_writeups*
+
+*Password redacted in compliance with breachlab.org rules.*
