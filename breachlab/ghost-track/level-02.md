@@ -158,13 +158,13 @@ Three hidden files inside a hidden directory — double concealment. Read all th
 
 ```bash
 ghost2@breachlab:~/investigation/.leads$ cat .source_alpha
-7a4e91c63d2f
+[REDACTED]
 
 ghost2@breachlab:~/investigation/.leads$ cat .source_beta
-bb50d8e4a11c
+[REDACTED]
 
 ghost2@breachlab:~/investigation/.leads$ cat .source_omega
-H1dd3nInSh4dow
+[REDACTED — solve it yourself at breachlab.org]
 ```
 
 `.source_alpha` and `.source_beta` are decoys. `.source_omega` contains the real password.
@@ -172,7 +172,7 @@ H1dd3nInSh4dow
 ```bash
 ┌──(kali㉿kali)-[~]
 └─$ ssh ghost3@204.168.229.209 -p 2222
-(ghost3@204.168.229.209) Password: H1dd3nInSh4dow
+(ghost3@204.168.229.209) Password: [REDACTED]
 
 # Successfully logged in as ghost3 ✓
 ```
@@ -211,3 +211,5 @@ Always use `ls -la` instead of plain `ls` when enumerating Linux systems — hid
 
 *Part of my BreachLab Ghost Track series — documenting every level as I complete it.*  
 *GitHub: https://github.com/saqb201/cybersecurity_lab_writeups*
+
+*Password redacted in compliance with breachlab.org rules.*
