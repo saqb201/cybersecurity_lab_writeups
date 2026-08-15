@@ -133,17 +133,15 @@ Points directly to `access_codes.dat`:
 
 ```bash
 ghost3@breachlab:/var/intel/ops$ cat access_codes.dat
-P3rm1ss10ns_M4tt3r
+[REDACTED — solve it yourself at breachlab.org]
 ```
-
-Password found: `P3rm1ss10ns_M4tt3r`
 
 Confirmed by logging into ghost4:
 
 ```bash
 ┌──(kali㉿kali)-[~]
 └─$ ssh ghost4@204.168.229.209 -p 2222
-(ghost4@204.168.229.209) Password: P3rm1ss10ns_M4tt3r
+(ghost4@204.168.229.209) Password: [REDACTED]
 
 # Successfully logged in as ghost4 ✓
 ```
@@ -197,3 +195,5 @@ Always check Linux permissions with `ls -la` and your own identity with `id` bef
 
 *Part of my BreachLab Ghost Track series — documenting every level as I complete it.*  
 *GitHub: https://github.com/saqb201/cybersecurity_lab_writeups*
+
+*Password redacted in compliance with breachlab.org rules.*
